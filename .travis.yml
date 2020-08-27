@@ -8,7 +8,9 @@ python:
     - 3.8
     - nightly
     - pypy3
-
+jobs:
+  allow_failures:
+    - python: pypy3
 install: pip install flake8 pytest pytest-cov .
 before_script: flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
 script: py.test -v --cov=surt
